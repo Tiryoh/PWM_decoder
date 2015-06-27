@@ -1,0 +1,12 @@
+language: python
+python:
+    - "2.7"
+
+env:
+    - PLATFORMIO_CI_SRC=PWM_decoder.ino
+
+install:
+    - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
+
+script:
+    - platformio ci --board=uno --board=diecimilaatmega328
