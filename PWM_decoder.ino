@@ -38,9 +38,9 @@ void setup()
 void loop()
 {
   duration1 = pulseIn(rcv1, HIGH);
-  int speedVal1 = map(duration1, period*1000*DutyMax/100, period*1000*DutyMin/100, -255, 255);
+  int speedVal1 = map(duration1, period*1000*DutyMin/100, period*1000*DutyMax/100, -255, 255);
   duration2 = pulseIn(rcv2, HIGH);
-  int speedVal2 = map(duration2, period*1000*DutyMax/100, period*1000*DutyMin/100, -255, 255);
+  int speedVal2 = map(duration2, period*1000*DutyMin/100, period*1000*DutyMax/100, -255, 255);
 
   if( speedVal1 > 20)
   {
