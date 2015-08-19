@@ -9,9 +9,9 @@
 //define period (ms)
 #define period 20
 //define Max duty ratio (percent)
-#define DutyMax 10
+#define DutyMax 9.0
 //define Min. duty ratio (percent)
-#define DutyMin 5
+#define DutyMin 5.5
 
 //pin definition
 int rcv1 = 7; //1st ch
@@ -41,8 +41,8 @@ void loop()
   int speedVal1 = map(duration1, period*10*DutyMin, period*10*DutyMax, -255, 255);
   duration2 = pulseIn(rcv2, HIGH);
   int speedVal2 = map(duration2, period*10*DutyMin, period*10*DutyMax, -255, 255);
-  speedVal1 = constrain(speedVal1, -255, 255);
-  speedVal2 = constrain(speedVal2, -255, 255);
+  speedVal1 = constrain(speedVal1, -250, 250);
+  speedVal2 = constrain(speedVal2, -250, 250);
   Serial.print("rcv1:,");
   Serial.print(speedVal1);
   Serial.print(",rcv2:,");
