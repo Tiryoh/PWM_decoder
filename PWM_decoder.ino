@@ -41,6 +41,8 @@ void loop()
   int speedVal1 = map(duration1, period*10*DutyMin, period*10*DutyMax, -255, 255);
   duration2 = pulseIn(rcv2, HIGH);
   int speedVal2 = map(duration2, period*10*DutyMin, period*10*DutyMax, -255, 255);
+  speedVal1 = constrain(speedVal1, -255, 255);
+  speedVal2 = constrain(speedVal2, -255, 255);
   Serial.print("rcv1:,");
   Serial.print(speedVal1);
   Serial.print(",rcv2:,");
