@@ -11,7 +11,7 @@
 //define Max duty ratio (percent)
 #define DutyMax 9.0
 //define Min. duty ratio (percent)
-#define DutyMin 5.5
+#define DutyMin 6.0
 
 //pin definition
 int rcv1 = 7; //1st ch
@@ -23,6 +23,7 @@ int outPin2_2 = 10;
 
 //variable definition
 volatile unsigned long duration1=0,duration2=0;
+int speedVal1=0,speedVal2=0;
 
 void setup()
 {
@@ -37,12 +38,14 @@ void setup()
 
 void loop()
 {
-  duration1 = pulseIn(rcv1, HIGH);
-  int speedVal1 = map(duration1, period*10*DutyMin, period*10*DutyMax, -255, 255);
-  duration2 = pulseIn(rcv2, HIGH);
-  int speedVal2 = map(duration2, period*10*DutyMin, period*10*DutyMax, -255, 255);
+  duration1 = pulseIn(rcv1, HIGH, period*2000);
+  speedVal1 = map(duration1, period*10*DutyMin, period*10*DutyMax, 255, -255);
+  duration2 = pulseIn(rcv2, HIGH, period*2000);
+  speedVal2 = map(duration2, period*10*DutyMin, period*10*DutyMax, 255, -255);
   speedVal1 = constrain(speedVal1, -250, 250);
   speedVal2 = constrain(speedVal2, -250, 250);
+  if(duration1 > period*150 )speedVal1 = 0;
+  if(duration2 > period*150 )speedVal2 = 0;
   Serial.print("rcv1:,");
   Serial.print(speedVal1);
   Serial.print(",rcv2:,");
