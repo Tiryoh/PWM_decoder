@@ -1,12 +1,12 @@
 language: python
 python:
-    - "2.7"
-
+- '2.7'
 env:
-    - PLATFORMIO_CI_SRC=PWM_decoder.ino
-
+- PLATFORMIO_CI_SRC=PWM_decoder.ino
 install:
-    - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
-
+- python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
 script:
-    - platformio ci --board=uno --board=diecimilaatmega328
+- platformio ci --board=uno --board=diecimilaatmega328
+notifications:
+  slack:
+    secure: g4hVnRhs7ZM9a4uZsFJ6QzAgl5eiX2g8hPWBaCkSUQYOLQw7alrFWhUea1mW3auigTRzHJMOA/rX7vkwOsnx41ZaqRweAjNWF+YzskfSJScnaiGNRFEY/DMTP1yv6doxocxXa8aNeZ0swxizUZITVJzHNFslcvuPymBZ9SCFoneiP/oYDSXoHPbzdZRgtONObbpZHqR4XXpYcmt3Lzt1uBtQr7FMLI+RqmgqBHETlZH9ggVXmXjWe2Yme4NpRzbFu2OdVgGPE4L2/iS8bJIxKumnDYnXdf+NGIG2D5LF72PIb3g09I4CBEmy3feYzL9wltB9AjywFi/4IDn9IK6pectMijiF/AMwDBXoY1l/zCGiJ0ZLqnr1Dx9EcQU1+rN1Zj+yR/G4CDCRX2KIgsnt4bCwUxcXbyAgcQURU2lFqYKMmyZLraA9ug6KlesP7mfPWLLoDMVlRUhknKrryfj8v4rIPQ5fH07t0AHn/7dkhchBW6G4CK0fkXnaVWEiHQxYSHFFlm0dtzrZB3RHfU/TZqLsui1Kb7BaKInugF/gCRdPP+y4CPc2lpI/DEdSdrOi51S7Ivz0Rg2rx9yubl7Wm+Ui+9NVOkRt1nj0maocBgsEk2tk51fmoyYuXAEH5DYidCtnbqPaDSfN+EJn3GBAphBsUMjY7EIGvmehD52Kg7U=
